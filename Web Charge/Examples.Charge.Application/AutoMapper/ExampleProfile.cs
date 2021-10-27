@@ -18,7 +18,9 @@ namespace Examples.Charge.Application.AutoMapper
                 .ReverseMap();
 
             CreateMap<PersonPhone, PersonPhoneDto>()
-                .ForMember(dest => dest.PhoneNumberTypeName, opt => opt.MapFrom(src => src.PhoneNumberType.Name));
+                .ForMember(dest => dest.PhoneNumberTypeName, opt => opt.MapFrom(src => src.PhoneNumberType.Name))
+                .ForMember(dest => dest.PersonId, opt => opt.MapFrom(src => src.BusinessEntityID))
+                .ForMember(dest => dest.PersonName, opt => opt.MapFrom(src => src.Person.Name));
 
             // Requests
             CreateMap<PersonCreateRequest, Person>();

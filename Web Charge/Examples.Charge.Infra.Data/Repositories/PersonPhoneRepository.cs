@@ -15,6 +15,7 @@ namespace Examples.Charge.Infra.Data.Repositories
         {
             return await DbSet.AsNoTracking()
                 .Include(pp => pp.PhoneNumberType)
+                .Include(pp => pp.Person)
                 .ToListAsync();
         }
 
@@ -22,6 +23,7 @@ namespace Examples.Charge.Infra.Data.Repositories
         {
             return await DbSet.AsNoTracking()
                 .Include(pp => pp.PhoneNumberType)
+                .Include(pp => pp.Person)
                 .FirstOrDefaultAsync(pp => pp.PhoneNumber == phoneNumber);
         }
     }
